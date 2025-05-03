@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TuoTuo - 寻找宝藏</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-30%); }
+        }
+        .sliding-albums {
+            animation: slide 30s linear infinite;
+            display: flex;
+            width: 200%;
+        }
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        .fade-out {
+            animation: fadeOut 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        @keyframes fadeOut {
+            from { opacity: 1; }
+            to { opacity: 0; }
+        }
+    </style>
+</head>
+<body class="bg-white font-sans text-black min-h-screen flex flex-col overflow-x-hidden">
+    <audio id="bgMusic" loop>
+        <source src="JJlin/M800001Xi3Ow3zvFFd.mp3" type="audio/mpeg">
+    </audio>
+
+    <div id="app" class="flex flex-col items-center justify-center flex-grow p-4 transition-all duration-500">
+        <!-- 专辑封面滑动区域 -->
+        <div class="w-full h-1/4 overflow-hidden mb-8 rounded-lg">
+             <div class="sliding-albums">
+                <!-- 请替换以下图片URL为实际地址 -->
+                <img src="JJlin/one.jpg " alt="SIXOLOGY" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/two.jpg" alt="Dust and dishes" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/three.jpg" alt="第七天堂" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/four.jpg" alt="GENESIS 新地球" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/five.jpg" alt="因你而在" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/six.jpg" alt="ORIGIN" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <!-- 重复实现无缝滚动 -->
+                <img src="JJlin/one.jpg" alt="SIXOLOGY" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/two.jpg" alt="Dust and dishes" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/three.jpg" alt="第七天堂" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/four.jpg" alt="GENESIS 新地球" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/five.jpg" alt="因你而在" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/six.jpg" alt="ORIGIN" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+            </div>
+            <div class="sliding-albums">
+                <!-- 请替换以下图片URL为实际地址 -->
+                <img src="JJlin/sevev.jpg " alt="SIXOLOGY" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/eighe.jpg" alt="Dust and dishes" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/nine.jpg" alt="第七天堂" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/cola.jpg" alt="GENESIS 新地球" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/eat.jpg" alt="因你而在" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/hi.jpg" alt="ORIGIN" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <!-- 重复实现无缝滚动 -->
+                <img src="JJlin/sevev.jpg" alt="SIXOLOGY" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/eighe.jpg" alt="Dust and dishes" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/nine.jpg" alt="第七天堂" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/cola.jpg" alt="GENESIS 新地球" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/eat.jpg" alt="因你而在" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+                <img src="JJlin/hi.jpg" alt="ORIGIN" class="w-32 h-32 md:w-48 md:h-48 object-cover mx-2 rounded-lg shadow-lg">
+            </div>
+        </div>
+
+        <!-- 主页面内容 -->
+        <div id="mainPage" class="text-center fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">Hi, 妥妥</h1>
+            <button id="startBtn" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                开始寻找
+            </button>
+        </div>
+
+        <!-- 问题1 -->
+        <div id="question1" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">好不好奇？</h2>
+            <div class="flex flex-col items-center">
+                <input type="text" id="answer1" class="border-2 border-gray-300 rounded-full px-4 py-2 mb-4 w-64 focus:outline-none focus:border-black" placeholder="输入你的答案">
+                <button id="confirm1" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                    确认
+                </button>
+            </div>
+        </div>
+
+        <!-- 提示1 -->
+        <div id="hint1" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">请前往一楼</h2>
+            <button id="ok1" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                好
+            </button>
+        </div>
+
+        <!-- 问题2 -->
+        <div id="question2" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">我帅还是吴彦祖帅？</h2>
+            <div class="flex flex-col items-center">
+                <input type="text" id="answer2" class="border-2 border-gray-300 rounded-full px-4 py-2 mb-4 w-64 focus:outline-none focus:border-black" placeholder="输入你的答案">
+                <button id="confirm2" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                    确定
+                </button>
+            </div>
+            <p id="error2" class="text-red-500 mt-2 hidden">答案不对哦，再想想~</p >
+        </div>
+
+        <!-- 提示2 -->
+        <div id="hint2" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">谢谢，但是我说的是地下一层哈哈哈</h2>
+            <button id="ok2" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                好
+            </button>
+        </div>
+
+        <!-- 修改后的问题3 -->
+        <div id="question3" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">今天天气咋么样？</h2>
+            <div class="flex flex-col items-center">
+                <input type="text" id="answer3" class="border-2 border-gray-300 rounded-full px-4 py-2 mb-4 w-64 focus:outline-none focus:border-black" placeholder="输入你的答案">
+                <button id="confirm3" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                    确认
+                </button>
+            </div>
+        </div>
+
+        <!-- 提示3 -->
+        <div id="hint3" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">请前往攀岩教室和篮球教室中间的休息区</h2>
+            <button id="ok3" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                好
+            </button>
+        </div>
+
+        <!-- 问题4 -->
+        <div id="question4" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">今天心情好吗？</h2>
+            <div class="flex flex-col items-center">
+                <input type="text" id="answer4" class="border-2 border-gray-300 rounded-full px-4 py-2 mb-4 w-64 focus:outline-none focus:border-black" placeholder="输入你的答案">
+                <button id="confirm4" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                    确认
+                </button>
+            </div>
+        </div>
+
+        <!-- 最终提示 -->
+        <div id="finalHint" class="text-center hidden fade-in">
+            <h2 class="text-3xl md:text-5xl font-bold mb-8">恭喜你，找到了它，在攀岩鞋架上，希望你喜欢这个礼物。</h2>
+            <button id="satisfiedBtn" class="bg-black text-white px-8 py-3 rounded-full text-lg font-medium hover:bg-gray-800 transition-all transform hover:scale-105 shadow-lg">
+                我很满意
+            </button>
+        </div>
+
+        <!-- 最终页面 -->
+        <div id="finalPage" class="text-center hidden fade-in">
+            < img src="YOUR_IMG_3448_URL" alt="GENESIS 新地球" class="w-64 h-64 md:w-96 md:h-96 object-cover mx-auto rounded-lg shadow-lg mb-8">
+            <h2 class="text-3xl md:text-5xl font-bold mb-4">林俊杰 - 新地球</h2>
+            <p class="text-xl md:text-2xl text-gray-600">谢谢参与这个寻宝游戏！</p >
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const bgMusic = document.getElementById('bgMusic');
+            bgMusic.volume = 0.3;
+            
+            document.body.addEventListener('click', function() {
+                bgMusic.play().catch(e => console.log("自动播放被阻止:", e));
+            }, { once: true });
+
+            // 获取所有页面元素
+            const mainPage = document.getElementById('mainPage');
+            const question1 = document.getElementById('question1');
+            const hint1 = document.getElementById('hint1');
+            const question2 = document.getElementById('question2');
+            const hint2 = document.getElementById('hint2');
+            const question3 = document.getElementById('question3');
+            const hint3 = document.getElementById('hint3');
+            const question4 = document.getElementById('question4');
+            const finalHint = document.getElementById('finalHint');
+            const finalPage = document.getElementById('finalPage');
+            const error2 = document.getElementById('error2');
+
+            function switchPage(from, to) {
+                from.classList.add('hidden');
+                from.classList.remove('fade-in');
+                to.classList.remove('hidden');
+                to.classList.add('fade-in');
+                window.scrollTo(0, 0);
+            }
+
+            // 事件监听
+            document.getElementById('startBtn').addEventListener('click', () => switchPage(mainPage, question1));
+            document.getElementById('confirm1').addEventListener('click', () => switchPage(question1, hint1));
+            document.getElementById('ok1').addEventListener('click', () => switchPage(hint1, question2));
+            
+            // 问题2验证
+            document.getElementById('confirm2').addEventListener('click', function() {
+                const answer = document.getElementById('answer2').value.trim();
+                if (answer === '你帅') {
+                    error2.classList.add('hidden');
+                    switchPage(question2, hint2);
+                } else {
+                    error2.classList.remove('hidden');
+                }
+            });
+
+            document.getElementById('ok2').addEventListener('click', () => switchPage(hint2, question3));
+            document.getElementById('confirm3').addEventListener('click', () => switchPage(question3, hint3));
+            document.getElementById('ok3').addEventListener('click', () => switchPage(hint3, question4));
+            document.getElementById('confirm4').addEventListener('click', () => switchPage(question4, finalHint));
+            
+            // 最终按钮
+            document.getElementById('satisfiedBtn').addEventListener('click', function() {
+                const app = document.getElementById('app');
+                app.classList.add('fade-out');
+                setTimeout(() => {
+                    app.classList.add('hidden');
+                    document.body.classList.add('bg-white');
+                    setTimeout(() => {
+                        finalPage.classList.remove('hidden');
+                        finalPage.classList.add('fade-in');
+                    }, 500);
+                }, 1000);
+            });
+        });
+    </script>
+</body>
+</html>
